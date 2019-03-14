@@ -1,6 +1,6 @@
 import React, { useState, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { todoContext } from '../../layouts/Todo/context';
+import { todoContext } from '../../layouts/TodoList/context';
 import Task from '../Task';
 import './scss/style.scss';
 

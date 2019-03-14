@@ -1,7 +1,7 @@
 import React, { useState, useRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import './scss/style.scss';
-import { todoContext } from '../../layouts/Todo/context';
+import { todoContext } from '../../layouts/TodoList/context';
 
 const Task = ({ task }) => {
     let [isChange, toggle] = useState(false);

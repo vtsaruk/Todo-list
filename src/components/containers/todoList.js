@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import component from '../layouts/Todo';
+import component from '../layouts/TodoList';
 import {
     getTodoLists,
     createTodoList,
