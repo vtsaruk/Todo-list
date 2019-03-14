@@ -1,0 +1,25 @@
+.task-list {
+    width: 400px;
+    margin-top: 20px;
+    
+
+    .task-name {
+        background: #ccc;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        border: 1px solid #000;
+        border-bottom: 0 solid #000;
+
+        .title {
+            width: 200px;
+        }
+    }
+    .add-task {
+        text-align: center;
+        background: #ccc;
+        border: 1px solid #000;
+        border-top: 0 solid #000;
+        padding-bottom: 10px;
+    }
+}
