@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
-let todoLists = [{ id: 1, title: 'Firs list' }];
+let todoLists = [{ id: 1, title: 'First list' }];
 let tasks = [
     { id: 1, todoListsId: 1, body: 'First task', status: true },
     { id: 2, todoListsId: 1, body: 'Second task', status: false }
