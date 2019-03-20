@@ -72,11 +72,18 @@ const TodoList = ({ todo }) => {
 };
 
 TodoList.propTypes = {
+    changeTodoList: PropTypes.func,
+    createTask: PropTypes.func,
+    deleteTodoList: PropTypes.func,
     todo: PropTypes.shape({
         id: PropTypes.number,
         title: PropTypes.string,
         tasks: PropTypes.array
     })
+};
+
+TodoList.defaultProps = {
+    todo: { id: 1, title: '', tasks: [] }
 };
 
 export default TodoList;

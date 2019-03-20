@@ -59,11 +59,17 @@ const Task = ({ task }) => {
 };
 
 Task.propTypes = {
+    changeTask: PropTypes.func,
+    deleteTask: PropTypes.func,
     task: PropTypes.shape({
         id: PropTypes.number,
         body: PropTypes.string,
         status: PropTypes.bool
     })
+};
+
+Task.defaultProps = {
+    task: {}
 };
 
 export default Task;

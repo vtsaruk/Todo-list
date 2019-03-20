@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { todoContext } from './context';
+import PropTypes from 'prop-types';
 import TodoList from '../../views/TaskList';
 import './scss/style.scss';
 
@@ -32,6 +33,18 @@ const Todo = props => {
             </div>
         </div>
     );
+};
+
+TodoList.propTypes = {
+    todoLists: PropTypes.array,
+    createTodoList: PropTypes.func,
+    getTodoLists: PropTypes.func
+};
+
+TodoList.defaultProps = {
+    todoLists: [],
+    createTodoList: () => {},
+    getTodoLists: () => {}
 };
 
 export default Todo;
