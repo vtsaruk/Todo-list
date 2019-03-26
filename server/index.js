@@ -64,7 +64,9 @@ app.put('/api/tasks/:id', function(req, res) {
     tasks.forEach((_, index) => {
         if (_.id == req.params.id) {
             _.body = req.body.body;
-            _.status = req.body.status;
+
+            _.status =
+                typeof req.body.status !== 'undefined' ? req.body.status : _.status;
             tasks[index] = _;
         }
     });

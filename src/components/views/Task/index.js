@@ -14,7 +14,7 @@ const Task = ({ task }) => {
                 type="checkbox"
                 onChange={() => {
                     changeTask({
-                        body: task.body,
+                        text: task.body,
                         id: task.id,
                         status: !task.status
                     });
