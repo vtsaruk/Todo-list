@@ -3,11 +3,11 @@ import { changeTodoList, getTodoLists } from '../modules/todoLists';
 import axios from 'axios';
 
 function* changeTodoListWorker(action) {
-    const { title, id } = action.payload;
+    const { text, id } = action.payload;
 
     try {
         yield axios.put('/api/todo-lists/' + id, {
-            title
+            title: text
         });
         yield put(getTodoLists());
     } catch (error) {

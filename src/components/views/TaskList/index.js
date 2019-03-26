@@ -2,44 +2,18 @@ import React, { useState, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { todoContext } from '../../layouts/TodoList/context';
 import Task from '../Task';
+import InputChange from '../InputChange';
 import './scss/style.scss';
 
 const TodoList = ({ todo }) => {
     let [isAddTask, toggleTask] = useState(false);
-    let [isChangeTitle, toggleTitle] = useState(false);
     let taskRef = useRef();
-    let titleRef = useRef();
     const { createTask, deleteTodoList, changeTodoList } = useContext(todoContext);
 
     return (
         <div className="task-list">
             <div className="task-name">
-                <h5 className="title">{todo.title}</h5>
-                {isChangeTitle ? (
-                    <div>
-                        <input type="text" ref={titleRef} />
-                        <button
-                            onClick={() => {
-                                changeTodoList({
-                                    id: todo.id,
-                                    title: titleRef.current.value
-                                });
-                                toggleTitle(0);
-                            }}>
-                            save
-                        </button>
-                        <button onClick={() => toggleTitle(0)}>cancel</button>
-                    </div>
-                ) : (
-                    <button
-                        onClick={() => {
-                            toggleTitle(1);
-                            setTimeout(() => (titleRef.current.value = todo.title), 0);
-                        }}>
-                        change title
-                    </button>
-                )}
-
+                <InputChange changeFun={changeTodoList} value={todo.title} id={todo.id} />
                 <button onClick={() => deleteTodoList({ id: todo.id })}>
                     delete task list
                 </button>

@@ -1,11 +1,10 @@
-import React, { useState, useRef, useContext } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import './scss/style.scss';
 import { todoContext } from '../../layouts/TodoList/context';
+import InputChange from '../InputChange';
 
 const Task = ({ task }) => {
-    let [isChange, toggle] = useState(false);
-    let taskRef = useRef({ value: task.body });
     const { changeTask, deleteTask } = useContext(todoContext);
 
     return (
@@ -21,39 +20,10 @@ const Task = ({ task }) => {
                     });
                 }}
             />
-            {isChange ? (
-                <input type="text" ref={taskRef} />
-            ) : (
-                <p className="text">{task.body}</p>
-            )}
-            {isChange ? (
-                [
-                    <button
-                        key="1"
-                        onClick={() => {
-                            changeTask({
-                                body: taskRef.current.value,
-                                id: task.id,
-                                status: task.status
-                            });
-                            toggle(0);
-                        }}>
-                        save
-                    </button>,
-                    <button key="2" onClick={() => toggle(0)}>
-                        cancel
-                    </button>
-                ]
-            ) : (
-                <button
-                    onClick={() => {
-                        toggle(1);
-                        setTimeout(() => (taskRef.current.value = task.body), 0);
-                    }}>
-                    change
-                </button>
-            )}
-            <button onClick={() => deleteTask({ id: task.id })}>delete</button>
+            <InputChange changeFun={changeTask} id={task.id} value={task.body} />
+            <button className="btn-delete" onClick={() => deleteTask({ id: task.id })}>
+                delete
+            </button>
         </div>
     );
 };

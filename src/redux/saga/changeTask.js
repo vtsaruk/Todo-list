@@ -3,11 +3,11 @@ import { changeTask, getTodoLists } from '../modules/todoLists';
 import axios from 'axios';
 
 function* changeTaskWorker(action) {
-    const { body, id, status } = action.payload;
+    const { text, id, status } = action.payload;
 
     try {
         const { data } = yield axios.put('/api/tasks/' + id, {
-            body,
+            body: text,
             status
         });
         if (data.success) {
